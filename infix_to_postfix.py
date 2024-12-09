@@ -45,13 +45,15 @@ def recursion(expression : str, ans : str = "", count = 1) -> str:
                     paren.push('(')
                 i += 1
                 count += 1
-            ans = empty_stack(stack,ans)
+            ans = empty_stack(stack, ans)
             continue
         elif char in '+-':
-            if not stack.is_empty() and stack.peek() in '*/':
-                ans = empty_stack(stack,ans)
+            if not stack.is_empty():
+                ans = empty_stack(stack, ans)
             stack.push(char)
         elif char in '*/':
+            if not stack.is_empty() and stack.peek() in '/*':
+                ans = empty_stack(stack, ans)
             stack.push(char)
         else:
             ans += char
