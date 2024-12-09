@@ -7,7 +7,10 @@ class Node:
         self.next : Node = None
 
     def __repr__(self):
-        return f"{self.val}"
+        return f"{self.val}|{self.next}"
+
+    def __str__(self):
+        return f"{self.__repr__()}"
 
 class LinkedList:
     '''LinkedList Class'''
@@ -22,13 +25,7 @@ class LinkedList:
 
     def __str__(self) -> str:
         '''__str__'''
-        string = "["
-        pointer = self.__head
-        while pointer:
-            string += f" {pointer.val}"
-            pointer = pointer.next
-        string += " ]"
-        return string
+        return f"{self.__head}"
 
     def __len__(self) -> int:
         '''Return lenght of LinkeList'''
