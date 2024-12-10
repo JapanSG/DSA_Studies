@@ -56,6 +56,6 @@ def main():
     # expression = "A*((B+C)/D)-E/F"
     # expression = "A*(B+C)-D*F-E"
     expression = input("Input expression Ex. A+B*C -> ")
-    print(f"Final answer = {infix_to_postfix(expression)}")
+    print(f"Final answer = {infix_to_postfix(expression)}\n")
 if __name__ == "__main__":
     main()
