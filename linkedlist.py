@@ -7,7 +7,7 @@ class Node:
         self.next : Node = None
 
     def __repr__(self):
-        return f"({self.val}) -> {self.next}"
+        return f"[{self.val}] -> {self.next}"
 
     def __str__(self):
         return f"{self.__repr__()}"
