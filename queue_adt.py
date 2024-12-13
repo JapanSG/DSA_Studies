@@ -79,5 +79,16 @@ def main():
     q1.concat_queue(q2)
     print(q1)
     print(q2)
+    print("-"*100)
+    #______________________
+    q = Queue()
+    data = (9, 72, 1, 43, 29, 0, 34, 62, 3, 56, 0, 34)
+    for num in data:
+        if num > 5:
+            q.enqueue(num)
+        else:
+            x = q.queue_rear()
+            q.enqueue(x)
+    print(q)
 if __name__ == "__main__":
     main()
