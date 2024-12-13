@@ -40,7 +40,8 @@ class Stack:
         s2 = Stack(self.__max)
         temp = Stack(self.__max)
         while not self.is_empty():
-            temp.push(self.pop())
+            x = self.pop()
+            temp.push(x)
         while not temp.is_empty():
             val = temp.pop()
             self.push(val)
