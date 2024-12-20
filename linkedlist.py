@@ -16,9 +16,12 @@ class LinkedList:
     '''LinkedList Class'''
     def __init__(self, *val) -> None:
         '''Constructor'''
+        if not val:
+            self.__head = None
+            self.__pointer = self.__head
+            return
         self.__head = Node(val[0])
         pointer = self.__head
-        self.__pointer = self.__head
         for i in range(1 ,len(val)):
             pointer.next = Node(val[i])
             pointer = pointer.next
@@ -89,6 +92,9 @@ class LinkedList:
 
     def append(self, val) -> None:
         '''Append Node'''
+        if not self.__head:
+            self.__head = Node(val)
+            return
         pointer = self.__head
         while pointer.next:
             pointer = pointer.next
@@ -105,19 +111,36 @@ class LinkedList:
             return val
         while pointer.next.next:
             pointer = pointer.next
+        temp = pointer.next
         val = pointer.next.val
         pointer.next = None
+        del temp
         return val
+
+    def insert(self, val, index):
+        '''insert Node of val at index'''
+        if not index:
+            new = Node(val)
+            new.next = self.__head
+            self.__head = new
+            return
+        pointer = self.__head.next
+        prev = self.__head
+        count = 1
+        while count != index:
+            count += 1
+            prev = pointer
+            pointer = pointer.next
+        prev.next = Node(val)
+        prev.next.next = pointer
 
 def main():
     '''Driver Code'''
-    lis = LinkedList(10,20,30,40,50)
-    lis1 = LinkedList(23,34,45)
-    for i in lis:
-        print(i)
-    lis2 = lis + lis1
-    print(lis2)
-    print(lis2[2])
-
+    lis = LinkedList(10,20,30,40)
+    print(lis)
+    lis.insert(5,4)
+    print(lis)
+    lis.pop()
+    print(lis)
 if __name__ == "__main__":
     main()
