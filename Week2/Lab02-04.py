@@ -1,4 +1,3 @@
-'''Lab 02.01 – Stack (Create Stack)'''
 class ArrayStack:
     '''Array Stack class made from list '''
     def __init__(self):
@@ -42,39 +41,29 @@ class ArrayStack:
 
     def get_size(self):
         '''Return the size of ArrayStack'''
-        size = 0
-        for _ in self.data:
-            size += 1
-        return size
+        return self.size
 
     def print_stack(self):
         '''Print the ArrayStack'''
         print(self.data)
-
+def is_parentheses_matching(expression : str) -> bool:
+    '''check if input have matching parentheses'''
+    matching = True
+    paren = ArrayStack()
+    for char in expression:
+        if char == "(":
+            paren.push(char)
+        if char == ")":
+            val = paren.pop()
+            if val is None:
+                matching = False
+    if paren.is_empty() and matching:
+        print("Parentheses in", expression, "are matched")
+        return True
+    print("Parentheses in", expression, "are unmatched")
+    return False
 def main():
-    '''Driver Code'''
-    students = ArrayStack()
-    groups = ArrayStack()
-    group_num = int(input())
-    student_num = int(input())
-    for _ in range(group_num):
-        groups.push(ArrayStack())
-    for _ in range(student_num):
-        students.push(input())
-    while not students.is_empty():
-        temp = ArrayStack()
-        while not groups.is_empty() and not students.is_empty():
-            group = groups.pop()
-            group.push(students.pop())
-            temp.push(group)
-        while not temp.is_empty():
-            groups.push(temp.pop())
-    i = 1
-    while not groups.is_empty():
-        print_group(groups.pop(), i)
-        i += 1
-def print_group(group : ArrayStack, i : int):
-    '''print Group'''
-    print(f"Group {i}: ", end="")
-    print(*group.data, sep = ", ")
+    ''''Driver Code'''
+    print(is_parentheses_matching(input()))
+
 main()
