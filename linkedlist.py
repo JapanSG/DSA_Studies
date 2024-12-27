@@ -7,7 +7,20 @@ class Node:
         self.next : Node = None
 
     def __repr__(self):
-        return f"[{self.val}] -> {self.next}"
+        mem = []
+        pointer = self
+        string = ""
+        while pointer not in mem:
+
+            if pointer is None:
+                return string + "None"
+
+            if pointer in mem:
+                return string + f"jump to index {mem.index(pointer)}"
+
+            mem.append(pointer)
+            string += f"[{pointer.val}] -> "
+            pointer = pointer.next
 
     def __str__(self):
         return f"{self.__repr__()}"
