@@ -56,7 +56,9 @@ class SinglyLinkedList:
             print("Cannot delete, "+ str(data) +" does not exist.")
             return
         if self.head.data == data:
+            temp = self.head
             self.head = self.head.next
+            del temp
             self.count -= 1
             return
         pointer = self.head
