@@ -138,6 +138,32 @@ class BST:
 
         delete_re(self.root,self.root)
 
+    def delete(self, data):
+        message = "Delete Error, " + str(data) + " is not found in Binary Search Tree."
+        def delete_re(node : BSTNode):
+            if not node:
+                print(message)
+                return
+            if data < node.data:
+                node.left = delete_re(node.left)
+            elif data > node.data:
+                node.right = delete_re(node.right)
+            else:
+
+                if not node.left:
+                    return node.right
+                
+                if not node.right:
+                    return node.left
+                
+                pointer = node.left
+                while pointer.right:
+                    pointer = pointer.right
+                new = pointer.data
+                node.data = new
+                self.delete(new)
+            return node
+        self.root = delete_re(self.root)
 
 def main():
     my_bst = BST()
