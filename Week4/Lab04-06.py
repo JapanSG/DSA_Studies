@@ -160,8 +160,8 @@ class BST:
                 while pointer.right:
                     pointer = pointer.right
                 new = pointer.data
-                node.data = new
                 self.delete(new)
+                node.data = new
             return node
         self.root = delete_re(self.root)
 

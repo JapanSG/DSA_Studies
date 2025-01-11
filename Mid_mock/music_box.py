@@ -78,7 +78,7 @@ class Queue:
                 print(f"Queue#{num} {pointer.val.show_info()}")
                 return
             pointer = pointer.next
-            num += 1
+            num += 1                                                    
         
     def removeSong(self, name : str):
         self.prev = self.clone()
