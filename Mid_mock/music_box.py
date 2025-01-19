@@ -125,6 +125,8 @@ class Queue:
         printall(rb)
 
     def undo(self):
+        if not self.prev:
+            return
         self.head = self.prev.head
         self.prev = self.prev.prev
     def rev_queue(self):
