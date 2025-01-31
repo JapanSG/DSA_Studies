@@ -1,4 +1,3 @@
-'''Lab 03.05 – Singly Linked List (Delete)'''
 class DataNode:
     '''DataNode class'''
     def __init__(self, data = None):
@@ -81,6 +80,7 @@ class SinglyLinkedList:
             print(" -> " + pointer.data, end = "")
             pointer = pointer.next
         print("")
+'''Lab 03.05 – Singly Linked List (Delete)'''
 
 def main():
     '''Driver Code'''
